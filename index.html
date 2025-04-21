@@ -56,13 +56,9 @@
   <button id="boton-transformacion2" class="morado">🔥 Transformación 2</button>
 
   <audio id="audio-trueno" src="trueno2.0.mp3"></audio>
-  <audio id="audio-transformacion1" src="transformacíon-1.mp3"></audio>
+  <audio id="audio-transformacion1" src="transformación-1.mp3"></audio>
   <audio id="audio-transformacion2" src="transformación-2.mp3"></audio>
-
-  <audio controls>
-    <source src="destroyer-of-worlds.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio HTML5.
-  </audio>
+  <audio id="audio-destroyer" src="destroyer-of-worlds.mp3" controls></audio>
 
   <script>
     document.getElementById('boton-trueno').addEventListener('click', () => {
@@ -72,9 +68,12 @@
     });
 
     document.getElementById('boton-transformacion1').addEventListener('click', () => {
-      const audio = document.getElementById('audio-transformacion1');
-      audio.currentTime = 0;
-      audio.play();
+      const audio1 = document.getElementById('audio-transformacion1');
+      const audio2 = document.getElementById('audio-destroyer');
+      audio1.currentTime = 0;
+      audio2.currentTime = 0;
+      audio1.play();
+      audio2.play();
     });
 
     document.getElementById('boton-transformacion2').addEventListener('click', () => {
@@ -86,4 +85,3 @@
 
 </body>
 </html>
-
