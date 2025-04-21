@@ -19,18 +19,29 @@
       gap: 20px;
     }
 
-    #boton-trueno {
+    button {
       padding: 10px 20px;
       font-size: 16px;
       border: none;
-      background-color: #444;
       color: white;
       border-radius: 5px;
       cursor: pointer;
     }
 
+    #boton-trueno {
+      background-color: #444;
+    }
+
     #boton-trueno:hover {
       background-color: #666;
+    }
+
+    .morado {
+      background-color: #6a0dad;
+    }
+
+    .morado:hover {
+      background-color: #8a2be2;
     }
 
     audio {
@@ -41,7 +52,12 @@
 <body>
 
   <button id="boton-trueno">⚡︎ Trueno</button>
+  <button id="boton-transformacion1" class="morado">🌀 Transformación 1</button>
+  <button id="boton-transformacion2" class="morado">🔥 Transformación 2</button>
+
   <audio id="audio-trueno" src="trueno2.0.mp3"></audio>
+  <audio id="audio-transformacion1" src="transformación-1.mp3"></audio>
+  <audio id="audio-transformacion2" src="transformación-2.mp3"></audio>
 
   <audio controls>
     <source src="destroyer-of-worlds.mp3" type="audio/mpeg">
@@ -49,10 +65,20 @@
   </audio>
 
   <script>
-    const boton = document.getElementById('boton-trueno');
-    const audio = document.getElementById('audio-trueno');
+    document.getElementById('boton-trueno').addEventListener('click', () => {
+      const audio = document.getElementById('audio-trueno');
+      audio.currentTime = 0;
+      audio.play();
+    });
 
-    boton.addEventListener('click', () => {
+    document.getElementById('boton-transformacion1').addEventListener('click', () => {
+      const audio = document.getElementById('audio-transformacion1');
+      audio.currentTime = 0;
+      audio.play();
+    });
+
+    document.getElementById('boton-transformacion2').addEventListener('click', () => {
+      const audio = document.getElementById('audio-transformacion2');
       audio.currentTime = 0;
       audio.play();
     });
