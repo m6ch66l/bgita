@@ -74,6 +74,7 @@
       audio1.play();
       setTimeout(() => {
         audio2.currentTime = 0;
+        audio2.volume = 1;
         audio2.play();
       }, 1000);
     });
@@ -83,9 +84,21 @@
       const destroyer = document.getElementById('audio-destroyer');
       audio.currentTime = 0;
       audio.play();
-      setTimeout(() => {
-        destroyer.pause();
-      }, 1000);
+
+      let fadeTime = 2000; // 2 segundos
+      let fadeSteps = 20;
+      let intervalTime = fadeTime / fadeSteps;
+      let step = destroyer.volume / fadeSteps;
+
+      let fade = setInterval(() => {
+        if (destroyer.volume - step > 0) {
+          destroyer.volume -= step;
+        } else {
+          destroyer.volume = 0;
+          destroyer.pause();
+          clearInterval(fade);
+        }
+      }, intervalTime);
     });
   </script>
 
