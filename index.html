@@ -75,13 +75,17 @@
       setTimeout(() => {
         audio2.currentTime = 0;
         audio2.play();
-      }, 1000); // 1 segundo de delay
+      }, 1000);
     });
 
     document.getElementById('boton-transformacion2').addEventListener('click', () => {
       const audio = document.getElementById('audio-transformacion2');
+      const destroyer = document.getElementById('audio-destroyer');
       audio.currentTime = 0;
       audio.play();
+      setTimeout(() => {
+        destroyer.pause();
+      }, 1000);
     });
   </script>
 
