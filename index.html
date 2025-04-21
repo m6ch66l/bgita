@@ -56,69 +56,7 @@
   <button id="boton-transformacion2" class="morado">🔥 Transformación 2</button>
 
   <audio id="audio-trueno" src="trueno2.0.mp3"></audio>
-  <audio id="audio-transformacion1" src="transformacíon-1.mp3"></audio>
-  <audio id="audio-transformacion2" src="transformación-2.mp3"></audio>
-  <audio id="audio-destroyer" src="destroyer-of-worlds.mp3" controls></audio>
-
-  <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Soundboard - Bhagavad-gītā</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-image: url('bgita-fondo.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    #boton-trueno {
-      background-color: #444;
-    }
-
-    #boton-trueno:hover {
-      background-color: #666;
-    }
-
-    .morado {
-      background-color: #6a0dad;
-    }
-
-    .morado:hover {
-      background-color: #8a2be2;
-    }
-
-    audio {
-      width: 300px;
-    }
-  </style>
-</head>
-<body>
-
-  <button id="boton-trueno">⚡︎ Trueno</button>
-  <button id="boton-transformacion1" class="morado">🌀 Transformación 1</button>
-  <button id="boton-transformacion2" class="morado">🔥 Transformación 2</button>
-
-  <audio id="audio-trueno" src="trueno2.0.mp3"></audio>
-  <audio id="audio-transformacion1" src="transformacíon-1.mp3"></audio>
+  <audio id="audio-transformacion1" src="transformación-1.mp3"></audio>
   <audio id="audio-transformacion2" src="transformación-2.mp3"></audio>
   <audio id="audio-destroyer" src="destroyer-of-worlds.mp3" controls></audio>
 
@@ -133,9 +71,11 @@
       const audio1 = document.getElementById('audio-transformacion1');
       const audio2 = document.getElementById('audio-destroyer');
       audio1.currentTime = 0;
-      audio2.currentTime = 0;
       audio1.play();
-      audio2.play();
+      setTimeout(() => {
+        audio2.currentTime = 0;
+        audio2.play();
+      }, 1000); // 1 segundo de delay
     });
 
     document.getElementById('boton-transformacion2').addEventListener('click', () => {
