@@ -44,6 +44,11 @@
       background-color: #8a2be2;
     }
 
+    .transformacion-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
     audio {
       width: 300px;
     }
@@ -52,8 +57,11 @@
 <body>
 
   <button id="boton-trueno">⚡︎ Trueno</button>
-  <button id="boton-transformacion1" class="morado">🌀 Transformación 1</button>
-  <button id="boton-transformacion2" class="morado">🔥 Transformación 2</button>
+
+  <div class="transformacion-buttons">
+    <button id="boton-transformacion1" class="morado">🌀 Transformación 1</button>
+    <button id="boton-transformacion2" class="morado">🔥 Transformación 2</button>
+  </div>
 
   <audio id="audio-trueno" src="trueno2.0.mp3"></audio>
   <audio id="audio-transformacion1" src="transformacíon-1.mp3"></audio>
@@ -85,7 +93,7 @@
       audio.currentTime = 0;
       audio.play();
 
-      let fadeTime = 3000; 
+      let fadeTime = 1500;
       let fadeSteps = 30;
       let intervalTime = fadeTime / fadeSteps;
       let step = destroyer.volume / fadeSteps;
@@ -101,6 +109,6 @@
       }, intervalTime);
     });
   </script>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/G28qHASOtE8?si=jHu8xYYJ-HGTdGR4&amp;start=251" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 </body>
 </html>
