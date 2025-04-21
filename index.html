@@ -2,30 +2,33 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Soundboard - Bhagavad-gītā</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
+      padding: 20px;
       background-image: url('bgita-fondo.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       gap: 20px;
+      box-sizing: border-box;
     }
 
     button {
-      padding: 10px 20px;
-      font-size: 16px;
+      padding: 10px 5vw;
+      font-size: 1rem;
       border: none;
       color: white;
       border-radius: 5px;
       cursor: pointer;
+      max-width: 90vw;
     }
 
     #boton-trueno {
@@ -46,11 +49,20 @@
 
     .transformacion-buttons {
       display: flex;
+      flex-wrap: wrap;
       gap: 10px;
+      justify-content: center;
     }
 
     audio {
-      width: 300px;
+      width: 90vw;
+      max-width: 300px;
+    }
+
+    iframe {
+      width: 90vw;
+      max-width: 560px;
+      height: 315px;
     }
   </style>
 </head>
@@ -93,24 +105,30 @@
       audio.currentTime = 0;
       audio.play();
 
-      let fadeTime = 1500;
-      let fadeSteps = 30;
-      let intervalTime = fadeTime / fadeSteps;
-      let step = destroyer.volume / fadeSteps;
+      setTimeout(() => {
+        let fadeTime = 1500;
+        let fadeSteps = 30;
+        let intervalTime = fadeTime / fadeSteps;
+        let step = destroyer.volume / fadeSteps;
 
-      let fade = setInterval(() => {
-        if (destroyer.volume - step > 0) {
-          destroyer.volume -= step;
-        } else {
-          destroyer.volume = 0;
-          destroyer.pause();
-          clearInterval(fade);
-        }
-      }, intervalTime);
+        let fade = setInterval(() => {
+          if (destroyer.volume - step > 0) {
+            destroyer.volume -= step;
+          } else {
+            destroyer.volume = 0;
+            destroyer.pause();
+            clearInterval(fade);
+          }
+        }, intervalTime);
+      }, 2000);
     });
   </script>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/G28qHASOtE8?si=KHPz-YvSoV9Gp-1_&amp;start=251" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  
+  <iframe src="https://www.youtube.com/embed/G28qHASOtE8?si=KHPz-YvSoV9Gp-1_&amp;start=251"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+  </iframe>
+
 </body>
 </html>
