@@ -13,8 +13,10 @@
       background-repeat: no-repeat;
       height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: 20px;
     }
 
     #boton-trueno {
@@ -30,12 +32,21 @@
     #boton-trueno:hover {
       background-color: #666;
     }
+
+    audio {
+      width: 300px;
+    }
   </style>
 </head>
 <body>
 
   <button id="boton-trueno">⚡︎ Trueno</button>
   <audio id="audio-trueno" src="trueno2.0.mp3"></audio>
+
+  <audio controls>
+    <source src="destroyer-of-worlds.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
 
   <script>
     const boton = document.getElementById('boton-trueno');
